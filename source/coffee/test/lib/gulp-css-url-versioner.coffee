@@ -43,7 +43,6 @@ describe('GulpCssUrlVersioner', () ->
 		)
 
 		#stream.pipe(gulp.dest('../../test/css/versioned/'))
-		
 
 		return
 	)
@@ -52,4 +51,3 @@ describe('GulpCssUrlVersioner', () ->
 	return
 
 )
-
