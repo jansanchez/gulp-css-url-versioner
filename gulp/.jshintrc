@@ -52,7 +52,10 @@
     "GMaps",
     "ScrollInf",
     "module",
-    "configuration"
+    "configuration",
+    "chunk",
+    "encoding",
+    "callback"
   ],
   "eqeqeq" : false, // esto es el casi el diablo, hay que ponerle false
   "eqnull" : false, // esto es el casi el diablo, hay que ponerle false

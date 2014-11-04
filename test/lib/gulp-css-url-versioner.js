@@ -2,13 +2,15 @@
 /*
 Test: cssUrl
  */
-var data, fs, gulp, gulpCssVersioner, stream;
+var data, fs, gulp, gulpCssVersioner, stream, through;
 
 gulp = require('gulp');
 
 fs = require('fs');
 
 gulpCssVersioner = require('../../dist/package/index');
+
+through = require('through2');
 
 stream = null;
 
@@ -26,12 +28,6 @@ describe('GulpCssUrlVersioner', function() {
       var type;
       type = typeof stream;
       type.should.be.equal("object");
-    });
-    it('should be a readable stream.', function() {
-      stream.readable.should.be.equal(true);
-    });
-    it('should be a writable stream.', function() {
-      stream.writable.should.be.equal(true);
     });
   });
 });

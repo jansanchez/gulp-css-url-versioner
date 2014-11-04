@@ -5,10 +5,12 @@ Test: cssUrl
 gulp = require('gulp')
 fs      = require('fs')
 gulpCssVersioner = require('../../dist/package/index')
+through = require('through2')
 
 stream = null
 
 data = fs.readFileSync('./test/css/test.css', 'utf8')
+
 
 
 describe('GulpCssUrlVersioner', () ->
@@ -32,15 +34,9 @@ describe('GulpCssUrlVersioner', () ->
 			return
 		)
 
-		it('should be a readable stream.', () ->
-			stream.readable.should.be.equal(true)
-			return
-		)
 
-		it('should be a writable stream.', () ->
-			stream.writable.should.be.equal(true)
-			return
-		)
+
+
 
 		#stream.pipe(gulp.dest('../../test/css/versioned/'))
 

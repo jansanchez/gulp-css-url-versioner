@@ -8,11 +8,11 @@ GulpCssUrlVersioner
 /*
  * Module dependencies.
  */
-var Buffer, CssUrlVersioner, GulpCssUrlVersioner, Transform, extend, util;
+var Buffer, CssUrlVersioner, GulpCssUrlVersioner, extend, through, util;
 
 util = require('util');
 
-Transform = require('stream').Transform;
+through = require('through2');
 
 Buffer = require('buffer').Buffer;
 
@@ -36,16 +36,13 @@ GulpCssUrlVersioner = function(opts) {
 GulpCssUrlVersioner.prototype.transform = function() {
   var self;
   self = this;
-  this.stream = new Transform({
-    objectMode: true
-  });
-  this.stream._transform = function(chunk, encoding, callback) {
+  this.stream = through.obj(function(chunk, encoding, callback) {
     self.data.content = chunk.contents.toString();
     self.options = extend(self.settings, self.data);
     self.css = new CssUrlVersioner(self.options);
     chunk.contents = new Buffer(self.css.output, 'utf8');
     return callback(null, chunk);
-  };
+  });
 };
 
 
