@@ -1,0 +1,56 @@
+{
+  "name": "gulp-css-url-versioner",
+  "version": "1.0.0",
+  "description": "A gulp plugin for versioning the CSS property: url",
+  "main": "dist/package/index",
+  "scripts": {
+    "start": "gulp",
+    "test": "gulp mocha",
+    "coveralls": "istanbul cover _mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jansanchez/gulp-css-url-versioner.git"
+  },
+  "keywords": [
+    "gulpfriendly",
+    "gulpplugin",
+    "gulp",
+    "css",
+    "url",
+    "versioner",
+    "version"
+  ],
+  "author": "jansanchez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jansanchez/gulp-css-url-versioner/issues"
+  },
+  "devDependencies": {
+    "codeclimate-test-reporter": "~0.0.4",
+    "conventional-changelog": "0.0.11",
+    "coveralls": "~2.11.2",
+    "css-url-versioner": "^1.0.2",
+    "gulp": "^3.8.8",
+    "gulp-bump": "^0.1.11",
+    "gulp-coffee": "^2.2.0",
+    "gulp-complexity": "^0.3.0",
+    "gulp-debug": "^1.0.1",
+    "gulp-filter": "^1.0.2",
+    "gulp-if": "^1.2.4",
+    "gulp-jshint": "^1.8.4",
+    "gulp-load-plugins": "^0.6.0",
+    "gulp-mocha": "~1.1.1",
+    "gulp-rimraf": "^0.1.0",
+    "gulp-tag-version": "^1.1.0",
+    "gulp-uglify": "^1.0.1",
+    "gulp-util": "^3.0.1",
+    "istanbul": "~0.3.2",
+    "jshint-stylish": "^0.4.0",
+    "mocha": "~1.21.4",
+    "mocha-lcov-reporter": "~0.0.1",
+    "node-notifier": "^3.2.1",
+    "run-sequence": "^0.3.6",
+    "should": "~4.0.4"
+  }
+}

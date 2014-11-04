@@ -1,0 +1,17 @@
+/*!
+* Test Styles
+* @author Jan Sanchez
+*/
+
+.some_selector{
+	background-image: url(sprite.png);
+	background-image: url("img/sprite.png");
+	background-image: url('../img/sprite.png');
+}
+@font-face{
+	font-family: 'gotham';
+	src: url(../fonts/new.eot#ie);
+	src: url("../fonts/new.abc.svg") format('svg'),
+	 	 url('../fonts/new.ttf#fix') format('truetype'),
+		 url("../fonts/new.svg#gotham") format('svg');
+}

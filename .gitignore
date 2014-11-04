@@ -1,0 +1,16 @@
+# Ignored Files
+
+node_modules
+demo
+npm-debug.log
+.tar.gz
+
+done
+output
+
+coverage
+*.orig
+.idea
+
+*.log
+
