@@ -2,16 +2,13 @@
 Test: cssUrl
 ###
 
+gulp = require('gulp')
 fs      = require('fs')
 gulpCssVersioner = require('../../dist/package/index')
 
-
-mainInstance = null
-d = new Date()
-version = d.getFullYear().toString() + (d.getMonth()+1).toString() + d.getDate().toString()
+stream = null
 
 data = fs.readFileSync('./test/css/test.css', 'utf8')
-
 
 
 describe('GulpCssUrlVersioner', () ->
@@ -23,15 +20,31 @@ describe('GulpCssUrlVersioner', () ->
 	)
 
 	describe('Output', () ->
-		mainInstance = gulpCssVersioner({
-			content: data
-		})
 
-		it('mainInstance should be an javascript object.', () ->
-			type = typeof mainInstance
+		stream = gulp.src(['../../test/css/test.css'])
+			.pipe(gulpCssVersioner({
+				content: data
+			}))
+
+		it('stream should be an javascript object.', () ->
+			type = typeof stream
 			type.should.be.equal("object")
 			return
 		)
+
+		it('should be a readable stream.', () ->
+			stream.readable.should.be.equal(true)
+			return
+		)
+
+		it('should be a writable stream.', () ->
+			stream.writable.should.be.equal(true)
+			return
+		)
+
+		#stream.pipe(gulp.dest('../../test/css/versioned/'))
+		
+
 		return
 	)
 
