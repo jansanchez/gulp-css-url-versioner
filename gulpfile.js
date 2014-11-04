@@ -144,7 +144,7 @@ gulp.task('complexity', function(){
 
 
 gulp.task('js', function(cb) {
-    plugins.runSequence('clean:js', 'coffee', 'copy:js:test', 'clean:js:test', 'lint', cb);
+    plugins.runSequence('clean:js', 'coffee', 'copy:js:test', 'clean:js:test', 'lint', 'complexity', cb);
 });
 
 
@@ -166,7 +166,7 @@ gulp.task('default', [], function (cb) {
 });
 
 
-gulp.task('mocha', function () {
+gulp.task('test', function () {
     return gulp.src(path.mocha.js.test, {read: false})
     .pipe(plugins.mocha({
         reporter: 'spec',
