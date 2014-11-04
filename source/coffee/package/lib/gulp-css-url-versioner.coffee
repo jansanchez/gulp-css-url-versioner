@@ -20,20 +20,26 @@ CssUrlVersioner = require('css-url-versioner')
 
 GulpCssUrlVersioner = (opts) ->
 
-	@stream = new Transform({objectMode: true})
-	content = {}
-	settings = opts or {}
+	@data = {}
+	@settings = opts or {}
+	@css = ''
+	@transform()
 
+	return @stream
+
+GulpCssUrlVersioner::transform = ()->
+	self = @
+
+	@stream = new Transform({objectMode: true})
 	@stream._transform = (chunk, encoding, callback) ->
 
-		content.content = chunk.contents.toString()
-		@options = extend(settings, content)
-		css = new CssUrlVersioner(@options)
-		chunk.contents = new Buffer(css.output, 'utf8')
+		self.data.content = chunk.contents.toString()
+		self.options = extend(self.settings, self.data)
+		self.css = new CssUrlVersioner(self.options)
+		chunk.contents = new Buffer(self.css.output, 'utf8')
 
 		callback(null, chunk)
-	
-	return @stream
+	return
 
 ###
 # Expose library.

@@ -26,21 +26,26 @@ CssUrlVersioner = require('css-url-versioner');
  */
 
 GulpCssUrlVersioner = function(opts) {
-  var content, settings;
+  this.data = {};
+  this.settings = opts || {};
+  this.css = '';
+  this.transform();
+  return this.stream;
+};
+
+GulpCssUrlVersioner.prototype.transform = function() {
+  var self;
+  self = this;
   this.stream = new Transform({
     objectMode: true
   });
-  content = {};
-  settings = opts || {};
   this.stream._transform = function(chunk, encoding, callback) {
-    var css;
-    content.content = chunk.contents.toString();
-    this.options = extend(settings, content);
-    css = new CssUrlVersioner(this.options);
-    chunk.contents = new Buffer(css.output, 'utf8');
+    self.data.content = chunk.contents.toString();
+    self.options = extend(self.settings, self.data);
+    self.css = new CssUrlVersioner(self.options);
+    chunk.contents = new Buffer(self.css.output, 'utf8');
     return callback(null, chunk);
   };
-  return this.stream;
 };
 
 
