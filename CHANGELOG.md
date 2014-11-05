@@ -1,3 +1,11 @@
+### 1.0.3 (2014-11-05)
+
+
+#### Features
+
+* **css-url-versioner:** Actualizando la version de la dependencia. ([9ea10b77](https://github.com/jansanchez/gulp-css-url-versioner.git/commit/9ea10b777612dc5d5a61ce2a2fabe48aa9b1c807))
+
+
 ### 1.0.2 (2014-11-05)
 
 
