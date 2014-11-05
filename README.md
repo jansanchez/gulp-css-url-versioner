@@ -25,6 +25,94 @@ gulp.task('styles', function () {
 });
 ```
 
+#### With Stylus and Git
+
+
+```
+var gulp = require('gulp'),
+    stylus = require('gulp-stylus'),
+    cssVersioner = require('gulp-css-url-versioner');
+
+gulp.task('stylus', function () {
+    return gulp.src('src/styles/*.styl')
+		.pipe(stylus())
+		.pipe(cssVersioner({lastcommit: true}))
+		.pipe(gulp.dest('dist/styles/'));
+});
+```
+
+
+#### Input
+```
+.fancybox-overlay {
+  background: url(fancybox_overlay.png);
+}
+@font-face {
+	font-family: "OpenSans";
+	font-style: normal;
+	font-weight: normal;
+	src: url("os.eot");
+	src: url("os.eot#iefix") format('embedded-opentype'), 
+		 url("os.ttf") format('truetype'), 
+		 url("os.woff") format('woff'), 
+		 url("os.svg#OpenSans") format('svg');
+}
+```
+
+#### Output
+```
+.fancybox-overlay {
+  background: url(fancybox_overlay.png?v=6bfae27);
+}
+@font-face {
+	font-family: "OpenSans";
+	font-style: normal;
+	font-weight: normal;
+	src: url("os.eot?v=6bfae27");
+	src: url("os.eot?v=6bfae27#iefix") format('embedded-opentype'), 
+		 url("os.ttf?v=6bfae27") format('truetype'), 
+		 url("os.woff?v=6bfae27") format('woff'), 
+		 url("os.svg?v=6bfae27#OpenSans") format('svg');
+}
+```
+
+
+
+
+### Options:
+
+Options are the same as has: [css-url-versioner](https://github.com/jansanchez/css-url-versioner#options)
+
+#### variable:
+Default: `v`
+
+Here go the variable of our version, for '?myVariable=yyyymmdd'
+
+```
+{variable: 'myVariable'}
+```
+
+#### version:
+Default: `yyyymmdd`
+
+Here you go a custom version if you so desire, but if we do not put this key, then the default version will be the current date.
+
+```
+{version: '0.0.2'}
+```
+
+#### lastcommit: 
+Default: `false`
+
+If we want that version to be our short version of last commit in git, configured 'lastcommit' to true.
+
+```
+{lastcommit: true}
+```
+
+
+
+
 
 [downloads-image]: http://img.shields.io/npm/dm/gulp-css-url-versioner.svg
 [npm-url]: https://www.npmjs.org/package/gulp-css-url-versioner
