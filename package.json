@@ -54,7 +54,7 @@
     "should": "~4.0.4"
   },
   "dependencies": {
-    "through2": "^0.6.3",
-    "css-url-versioner": "~1.0.5"
+    "css-url-versioner": "^1.0.6",
+    "through2": "^0.6.3"
   }
 }
