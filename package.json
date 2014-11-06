@@ -1,6 +1,6 @@
 {
   "name": "gulp-css-url-versioner",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A gulp plugin for versioning the CSS property: url",
   "main": "dist/package/index",
   "scripts": {

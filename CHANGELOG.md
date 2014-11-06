@@ -1,3 +1,11 @@
+### 1.0.4 (2014-11-06)
+
+
+#### Features
+
+* **readme:** Corrigiendo errores de texto. ([d02fd760](https://github.com/jansanchez/gulp-css-url-versioner.git/commit/d02fd7605cb6e25005052a419b12829c6e99c404))
+
+
 ### 1.0.3 (2014-11-05)
 
 
