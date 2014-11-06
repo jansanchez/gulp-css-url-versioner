@@ -2,7 +2,8 @@
 
 # Gulp CSS Url Versioner [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coveralls Status][coveralls-image]][coveralls-url] [![Code Climate Status][codeclimate-image]][codeclimate-url]
 
-> A gulp plugin for versioning the CSS property: url
+> A gulp plugin for versioning the CSS property: url.
+> Based on: [css-url-versioner](https://github.com/jansanchez/css-url-versioner)
 
 ## Getting Started
 
@@ -35,7 +36,7 @@ var gulp = require('gulp'),
 
 gulp.task('stylus', function () {
     return gulp.src('src/styles/*.styl')
-		.pipe(stylus())
+    	.pipe(stylus())
 		.pipe(cssVersioner({lastcommit: true}))
 		.pipe(gulp.dest('dist/styles/'));
 });
@@ -81,12 +82,11 @@ gulp.task('stylus', function () {
 
 ### Options:
 
-Options are the same as has: [css-url-versioner](https://github.com/jansanchez/css-url-versioner#options)
 
 #### variable:
 Default: `v`
 
-Here go the variable of our version, for '?myVariable=yyyymmdd'
+You can customize the variable name in '?myVariable=yyyymmdd'
 
 ```
 {variable: 'myVariable'}
@@ -95,7 +95,7 @@ Here go the variable of our version, for '?myVariable=yyyymmdd'
 #### version:
 Default: `yyyymmdd`
 
-Here you go a custom version if you so desire, but if we do not put this key, then the default version will be the current date.
+By default the version is the current date. You can also customize it:
 
 ```
 {version: '0.0.2'}
@@ -104,7 +104,7 @@ Here you go a custom version if you so desire, but if we do not put this key, th
 #### lastcommit: 
 Default: `false`
 
-If we want that version to be our short version of last commit in git, configured 'lastcommit' to true.
+Set to true if you want to use the short version of your last commit as your version.
 
 ```
 {lastcommit: true}
