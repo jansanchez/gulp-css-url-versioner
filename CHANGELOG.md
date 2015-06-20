@@ -1,3 +1,11 @@
+### 1.0.6 (2015-06-20)
+
+
+#### Features
+
+* **package:** actualizando la version de la dependencia principal ([36743a7d](https://github.com/jansanchez/gulp-css-url-versioner.git/commit/36743a7d147639b802428508e23e63beb11588e1))
+
+
 ### 1.0.5 (2015-01-20)
 
 
