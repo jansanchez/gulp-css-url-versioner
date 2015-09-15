@@ -15,3 +15,6 @@
 	 	 url('../fonts/new.ttf#fix') format('truetype'),
 		 url("../fonts/new.svg#gotham") format('svg');
 }
+.error{
+    background: url("Error");
+}

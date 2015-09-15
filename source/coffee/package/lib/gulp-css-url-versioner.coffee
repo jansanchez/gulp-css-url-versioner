@@ -10,6 +10,7 @@ GulpCssUrlVersioner
 
 util = require('util')
 through = require('through2')
+chalk = require('chalk')
 Buffer = require('buffer').Buffer
 extend = util._extend
 CssUrlVersioner = require('css-url-versioner')
@@ -20,7 +21,7 @@ CssUrlVersioner = require('css-url-versioner')
 
 GulpCssUrlVersioner = (opts) ->
 	@data = {}
-	@settings = opts or {}
+	@settings = opts or { debug: false }
 	@css = ''
 	@transform()
 	return @stream
@@ -30,8 +31,13 @@ GulpCssUrlVersioner::transform = ()->
 	@stream = through.obj( (chunk, encoding, callback) ->
 		self.data.content = chunk.contents.toString()
 		self.options = extend(self.settings, self.data)
-		self.css = new CssUrlVersioner(self.options)
-		chunk.contents = new Buffer(self.css.output, 'utf8')
+		try
+			self.css = new CssUrlVersioner(self.options)
+			chunk.contents = new Buffer(self.css.output, 'utf8')
+			if self.options.debug is true
+				console.log(chalk.yellow(' + ' + chunk.relative))
+		catch error
+			console.log(chalk.red(' - ' + chunk.relative  + ' : ' + error.message))
 		callback(null, chunk)
 		return
 	)

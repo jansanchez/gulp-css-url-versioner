@@ -1,5 +1,5 @@
 /*!!
- * 
+ *
  * gulpfile.js
  * @author: Jan Sanchez
  *
@@ -27,7 +27,7 @@ var coffeeTasks = ['js'];
 
 
 /*!!
-* 
+*
 * Tareas para changelog, tag
 *
 * tarea principal: gulp
@@ -56,7 +56,7 @@ gulp.task('version', function (cb) {
 });
 
 /*!!
-* 
+*
 * Tareas individuales para limpiar los archivos generados
 *
 * tarea principal: gulp clean
@@ -82,7 +82,7 @@ gulp.task('clean', function (cb) {
 
 
 /*!!
-* 
+*
 * Tareas para copiar archivos
 *
 * tarea principal: gulp copy
@@ -97,7 +97,7 @@ gulp.task('copy:js:test', function () {
 
 
 /*!!
-* 
+*
 * Tareas para generar, concatenar, lintear Javascript
 *
 * tarea principal: gulp js
@@ -155,7 +155,7 @@ gulp.task('watch', function () {
 
 
 /*!!
-* 
+*
 * Tareas por default
 *
 * tarea principal: gulp
@@ -179,17 +179,15 @@ gulp.task('test', function () {
     ));
 });
 
+
 /*
 * Task for test my package
 */
 
-
-
 var gulpCssVersioner = require('./dist/package/index.js')
 
 gulp.task('versioner', function () {
-    return gulp.src(['test/css/test.css'])
+    return gulp.src(['test/css/*.css'])
             .pipe(gulpCssVersioner())
             .pipe(gulp.dest('test/css/versioned/'))
 });
-
