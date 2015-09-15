@@ -1,6 +1,6 @@
 {
   "name": "gulp-css-url-versioner",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "description": "A gulp plugin for versioning the CSS property: url",
   "main": "dist/package/index",
   "scripts": {
@@ -28,7 +28,6 @@
     "url": "https://github.com/jansanchez/gulp-css-url-versioner/issues"
   },
   "devDependencies": {
-    "chalk": "^1.1.1",
     "codeclimate-test-reporter": "~0.0.4",
     "conventional-changelog": "0.0.11",
     "coveralls": "~2.11.2",
@@ -56,6 +55,7 @@
   },
   "dependencies": {
     "css-url-versioner": "^1.1.1",
-    "through2": "^0.6.3"
+    "through2": "^0.6.3",
+    "chalk": "^1.1.1"
   }
 }

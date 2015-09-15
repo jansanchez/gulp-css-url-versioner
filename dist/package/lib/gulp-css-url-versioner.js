@@ -41,7 +41,7 @@ GulpCssUrlVersioner.prototype.transform = function() {
   var self;
   self = this;
   this.stream = through.obj(function(chunk, encoding, callback) {
-    var error;
+    var error, error1;
     self.data.content = chunk.contents.toString();
     self.options = extend(self.settings, self.data);
     try {
@@ -50,8 +50,8 @@ GulpCssUrlVersioner.prototype.transform = function() {
       if (self.options.debug === true) {
         console.log(chalk.yellow(' + ' + chunk.relative));
       }
-    } catch (_error) {
-      error = _error;
+    } catch (error1) {
+      error = error1;
       console.log(chalk.red(' - ' + chunk.relative + ' : ' + error.message));
     }
     callback(null, chunk);

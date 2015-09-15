@@ -188,6 +188,6 @@ var gulpCssVersioner = require('./dist/package/index.js')
 
 gulp.task('versioner', function () {
     return gulp.src(['test/css/*.css'])
-            .pipe(gulpCssVersioner())
+            .pipe(gulpCssVersioner({debug: true}))
             .pipe(gulp.dest('test/css/versioned/'))
 });
