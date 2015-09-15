@@ -110,8 +110,19 @@ Set to true if you want to use the short version of your last commit as your ver
 {lastcommit: true}
 ```
 
+#### version: Math.random()
+```
+{version: Math.random()}
+```
 
+#### debug 
+Default: `false`
 
+Set to true, if you want to print the relative path for each processed file
+
+```
+{debug: true}
+```
 
 
 [downloads-image]: http://img.shields.io/npm/dm/gulp-css-url-versioner.svg
