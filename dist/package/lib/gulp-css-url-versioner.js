@@ -41,7 +41,7 @@ GulpCssUrlVersioner.prototype.transform = function() {
     self.options = extend(self.settings, self.data);
     self.css = new CssUrlVersioner(self.options);
     chunk.contents = new Buffer(self.css.output, 'utf8');
-    return callback(null, chunk);
+    callback(null, chunk);
   });
 };
 
